@@ -68,6 +68,8 @@ Pick one track:
     * Java **Spring Boot** + PostgreSQL
   * **REST endpoints** for main entities (GET/POST/PUT/DELETE)
   * Use **prepared statements/ORM** (SQLAlchemy/Prisma/JPA)
+
+  We have chosen Track B. We have used Python, FastAPI + PostgreSQK + SQLAlchemy.
   
 ### M5 — User Interface 
 
