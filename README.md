@@ -36,6 +36,7 @@ After selecting Fashion Inspo as our domain, we have worked on business rules an
 * **UML Class Diagram** (multiplicities + inheritance if used)
 * Rationale for design decisions
 * `diagrams/ERD.png`, `diagrams/UML.png`, `docs/M2_NOTES.md`
+After long brainstorming we have created appropriate UML and ERD diagrams, justified by decision rationales.
 
 ### M3 — Logical/Physical Design 
 
