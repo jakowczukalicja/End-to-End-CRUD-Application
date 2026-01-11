@@ -77,6 +77,9 @@ Pick one track:
 * Create/Update forms 
 * Detail view that shows **1:N** child rows (e.g., order items of an order)
 * Screenshots: `docs/ui/…`
+  We have added our web app. We also added screenshots of the User Inteface. 
+  We have also described the setup process and final reflections in setup_and_reflections.md
+  ![setup_refl](/docs/setup_and_reflections.md)
 
 ### Final — Demo & Report 
 

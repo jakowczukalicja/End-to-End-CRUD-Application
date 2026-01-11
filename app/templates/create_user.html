@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if error %}
+  <p class="message">{{ error }}</p>
+{% endif %}
+
+<div class="form_background">
+
+  <form class="form" method="post" action="/create_user">
+    <label>Name</label>
+    <input name="name" required>
+
+    <label>Surname</label>
+    <input name="surname" required>
+
+    <label>Email</label>
+    <input type="email" name="email" required>
+
+    <label>Password</label>
+    <input type="password" name="password" required>
+
+    <button class="nav-btn primary" type="submit">Create</button>
+  </form>
+</div>
+
+
+{% endblock %}
+
+

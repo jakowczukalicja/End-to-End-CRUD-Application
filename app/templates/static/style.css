@@ -1,0 +1,378 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+
+:root{
+  --pink-50: #fff0f6;
+  --pink-100:#ffe3ee;
+  --pink-200:#ffb3d1;
+  --pink-400:#ff4d94;
+  --pink-600:#d6336c;
+  --text: #2b2b2b;
+  --border:#f3a7c4;
+  --card:#ffffff;
+  --image_width: 300px;
+}
+
+*{ box-sizing: border-box; }
+
+
+body{
+  min-height: 100vh;
+  margin: 0;
+
+
+  background:
+    radial-gradient(circle at 50% 50%,
+      color-mix(in srgb, var(--pink-400) 45%, transparent) 0%,
+      color-mix(in srgb, var(--pink-400) 25%, transparent) 22%,
+      color-mix(in srgb, var(--pink-200) 18%, transparent) 45%,
+      transparent 72%
+    ),
+    linear-gradient(180deg, var(--pink-50) 0%, var(--pink-100) 100%);
+
+  background-attachment: fixed;
+}
+
+
+h1{
+  margin-top: 20px;
+  color: var(--pink-600);
+  font-size: 100px; 
+  font-family: "Great Vibes", cursive;
+  margin-bottom: 10px;
+}
+
+.is-home h1{
+  font-size: 200px;
+  margin-bottom: 0;
+}
+
+nav{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.nav-btn{
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: var(--pink-100);
+  border: 1px solid var(--border);
+  color: var(--pink-600);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.nav-btn:hover{
+  background: var(--pink-200);
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-btn {
+  cursor: pointer;
+  border: 1px solid var(--border) !important;
+  background: var(--pink-100) !important;
+  padding: 10px 14px !important;
+  font-weight: 600;
+  color: var(--pink-600);
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  background-color: var(--card);
+  min-width: 200px;
+  max-height: 250px;
+  overflow-y: scroll;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3);
+  z-index: 1000;
+  border-radius: 8px;
+  border: 2px solid var(--border);
+}
+
+.dropdown-content.show {
+  display: block;
+}
+
+.dropdown-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dropdown-content::-webkit-scrollbar-track {
+  background: var(--pink-50);
+  border-radius: 4px;
+}
+
+.dropdown-content::-webkit-scrollbar-thumb {
+  background: var(--pink-400);
+  border-radius: 4px;
+}
+
+.dropdown-content::-webkit-scrollbar-thumb:hover {
+  background: var(--pink-600);
+}
+
+.dropdown-content a {
+  color: var(--text);
+  padding: 16px 16px 16px 8px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.2s;
+  text-align: left;
+  width
+  : 100%;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-weight: 500;
+  min-height: 50px;
+}
+
+.colour-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 !important;
+  min-height: 50px;
+}
+
+.colour-square {
+  display: inline-block;
+  margin-left: 5px;
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  border-radius: 3px;
+  border: 1px solid #ddd;
+  flex-shrink: 0;
+}
+
+.dropdown-content a:hover {
+  background-color: var(--pink-100);
+}
+
+.dropdown:hover .dropdown-btn {
+  background: var(--pink-200);
+}
+
+.centered{
+  min-height: 90vh;       
+  display: flex;           
+  justify-content: center;  
+  align-items: center;      
+  flex-direction: column;   
+  text-align: center;      
+}
+
+.message{
+  font-size: 20px;
+  color: var(--text);
+}
+
+
+.table{
+  margin: 16px auto;
+  margin-top: 0;
+  border-collapse: collapse;
+  width: min(640px, 100%);
+  border: 1px solid var(--pink-200);
+  box-shadow: 0 6px 18px rgba(214,51,108,0.06);
+}
+.table th,
+.table td{
+  padding: 10px 14px;
+  border: 1px solid var(--pink-200);
+  background: var(--card);
+  text-align: left;
+}
+.table th{
+  color: var(--pink-600);
+  font-weight: 700;
+  width: 180px;
+  white-space: nowrap;
+  background: color-mix(in srgb, var(--pink-50) 70%, white);
+}
+.table td{
+  color: var(--text);
+}
+
+.attribution{
+  font-size: 15px;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+
+.attribution_link{
+  color: var(--pink-600);
+  text-decoration: none;
+  border-bottom: 2px solid var(--border);
+}
+
+.attribution_link:hover{
+  opacity: 1;
+}
+
+.user-info{
+  position: fixed; 
+  top: 20px; 
+  right: 20px;
+  display: flex;  
+}
+
+.form_background{
+  width: 500px;
+  background: var(--pink-50);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  margin-bottom: 20px;
+}
+
+.form{
+  display: grid;
+  gap: 10px;
+  text-align: left;
+}
+
+.form label{
+  font-weight: 600;
+  color: var(--pink-600);
+  margin-top: 12px;
+  font-size: 20px;
+}
+
+.form input{
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  font-size: 16px;
+  outline: none;
+}
+
+.form input:focus{
+  border-color: var(--pink-400);
+  box-shadow: 0 0 0 4px var(--pink-200);
+}
+
+.nav-btn.primary{
+  background: var(--pink-400);
+  color: var(--card); 
+  margin-top: 16px;
+  font-size: 16px;
+}
+
+.nav-btn.primary:hover{
+  background: var(--pink-600);
+  border-color: var(--pink-600);
+}
+
+.image{
+  display: block;
+  border: 1px solid var(--border);
+  width: var(--image_width);
+  object-fit: cover;     
+  object-position: center;
+  border-radius: 20px;
+}
+
+.garment_background{
+  width: 700px;
+  background: var(--pink-50);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+  align-items: center; 
+}
+
+.shade:hover{
+  border-color: var(--pink-400);
+  box-shadow: 0 0 0 4px var(--pink-200);
+}
+
+.left-box{
+  width: var(--image_width) + 100px;
+}
+
+.right-box{
+  flex: 1;
+}
+
+.likes{
+  display: grid;
+  gap: 15px;
+  text-align: center;
+}
+
+.likes label{
+  color: var(--text);
+  font-size: 20px;
+}
+
+.heart-btn {
+  background: none;
+  border: none;
+  font-size: 32px;
+  cursor: pointer;
+  color: #999;
+  padding: 0;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+.heart-btn:hover {
+  transform: scale(1.2);
+  color: var(--pink-600);
+}
+
+.heart-btn.liked {
+  color: var(--pink-400);
+}
+
+.filter-section {
+    margin: 20px auto;
+    padding: 15px;
+    text-align: center;
+    max-width: 1200px;
+}
+
+.filter-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: var(--card);
+    color: var(--text);
+    text-decoration: none;
+    border-radius: 8px;
+    border: 2px solid var(--border);
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.filter-btn:hover {
+    background-color: var(--pink-100);
+    border-color: var(--pink-400);
+    transform: translateY(-2px);
+}
+
+.filter-btn.active {
+    background-color: var(--pink-400);
+    color: white;
+    border-color: var(--pink-600);
+}

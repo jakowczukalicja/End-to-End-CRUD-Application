@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/static/style.css">
+        <link rel="icon" href="/static/hanger.png">
+        <meta charset="utf-8" />
+        <title> {{name or "My Web App"}}
+        </title>
+    </head>
+
+    <body class="{% if is_home %}is-home{% endif %}">
+
+       <a class="nav-btn user-info" href="/me" >User Info</a>
+        <div class ="centered">
+            
+        
+        <h1>
+            {{ name }}
+        </h1>
+
+       
+        <nav>
+              <a class="nav-btn" href="/">Home</a>
+              <a class="nav-btn" href="/login">Login</a>
+              <a class="nav-btn" href="/create_user">Create user</a>
+              <a class="nav-btn" href="/garments">Garments</a>
+              {% if available_colours is defined %}
+              <a class="nav-btn" href="/garments/liked">My Likes</a>
+              <div class="dropdown">
+                  <button type="button" class="nav-btn dropdown-btn" onclick="toggleDropdown(event)">Filter by Colour ▼</button>
+                  <div class="dropdown-content" id="colourDropdown">
+                      <a href="{% if is_liked_page %}/garments/liked{% else %}/garments{% endif %}">All Colours</a>
+                      {% if available_colours %}
+                          {% for colour in available_colours %}
+                              <a href="{% if is_liked_page %}/garments/liked/by-colour?colour={{ colour }}{% else %}/garments/by-colour?colour={{ colour }}{% endif %}" class="colour-item"><span class="colour-square" style="background-color: {{ get_color_rgb(colour) }}"></span>{{ colour }}</a>
+                          {% endfor %}
+                      {% endif %}
+                  </div>
+              </div>
+              {% endif %}
+        </nav>
+
+        <script>
+        function toggleDropdown(event) {
+            event.stopPropagation();
+            var dropdown = document.getElementById("colourDropdown");
+            dropdown.classList.toggle("show");
+        }
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropdown-btn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+        </script>
+
+        {% block content %}{% endblock %}
+
+        <footer class="attribution"> 
+        Website icon made by 
+        <a class= "attribution_link" href="https://www.flaticon.com/free-icons/hanger" title="Good Ware" target="_blank" rel="noopener"> 
+        Good Ware 
+        </a> 
+        from 
+        <a class= "attribution_link" href="https://www.flaticon.com/" title="Flaticon" target="_blank" rel="noopener"> 
+        Flaticon 
+        </a> 
+        </footer>
+        
+        </div>
+
+    </body>
+
+</html>

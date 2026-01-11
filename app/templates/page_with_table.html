@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <table class="table">
+    <tbody>
+      <tr>
+        {% for u in dict_res[0].keys() %}
+        <th>{{ u }}</th>
+        {% endfor %}
+      </tr>
+      {% for u in dict_res %}
+      <tr>
+        {% for a,b in u.items()%}
+        <td>{{ b }}</td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
+
+

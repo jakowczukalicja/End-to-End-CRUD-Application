@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <table class="table">
+    <tbody>
+      <tr><th>ID</th><td>{{ user_id }}</td></tr>
+      <tr><th>First name</th><td>{{ user_name }}</td></tr>
+      <tr><th>Surname</th><td>{{ user_surname }}</td></tr>
+      <tr><th>Email</th><td>{{ user_email }}</td></tr>
+    </tbody>
+  </table>
+
+  <nav>
+              <a class="nav-btn" href="/logout">Log out</a>
+              <a class="nav-btn" href="/change_password">Change password</a>
+              <a class="nav-btn" href="/delete_user">Delete user</a>
+              <a class="nav-btn" href="/users">Info about others</a>
+  </nav>
+{% endblock %}
+
+

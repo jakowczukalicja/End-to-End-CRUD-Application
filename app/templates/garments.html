@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% for u in dict_res%}
+    <div class="garment_background shade">
+    
+      <div class="left-box">
+        {% set img_path = u['path'] %}
+        {% if img_path %}
+          <img class="image shade" src="{{ request.url_for('static', path='resources/' ~ img_path) }}" alt="{{ u['name'] }}">
+        {% else %}
+          <img class="image shade" src="{{ request.url_for('static', path='resources/placeholder.png') }}" alt="No image">
+        {% endif %}
+      </div>
+
+      <div class="right-box">
+        {% set gid = u.get('id') or u.get('garment_id') or u.get('id_of_cloth') or u.get('id_of_garment') or u.get('cloth_id') %}
+        <form class="likes" method="post" action="/change_password">
+          <label><b>category: </b>{{ u['category'] }}</label>
+          <label><b>size: </b>{{ u['size'] }}</label>
+          <label><b>colour: </b>{{ u['colour'] }}</label>
+          <label><b>material: </b>{{ u['material'] }}</label>
+          <label><b>likes: </b><span id="likes-{{ gid }}">{{ u['num_of_likes'] }}</span></label>
+          {% if gid %}
+        <button type="button" class="heart-btn" id="heart-{{ gid }}" data-gid="{{ gid }}" onclick="toggleLike(event, '{{ gid }}')">♥</button>
+          {% endif %}
+        </form>
+      </div>
+    
+    </div>
+  {% endfor %}
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async function() {
+      const hearts = document.querySelectorAll('.heart-btn');
+      for (let heartBtn of hearts) {
+        const garmentId = heartBtn.dataset.gid;
+        if (!garmentId) { continue; }
+        const response = await fetch(`/garments/${garmentId}/is-liked`);
+        const data = await response.json();
+        if (data.liked) {
+          heartBtn.classList.add('liked');
+          heartBtn.textContent = '♥';
+        }
+      }
+    });
+
+    async function toggleLike(event, garmentId) {
+      event.preventDefault();
+      const heartBtn = document.getElementById(`heart-${garmentId}`);
+      const likesSpan = document.getElementById(`likes-${garmentId}`);
+      
+      if (heartBtn.classList.contains('liked')) {
+        const response = await fetch(`/garments/${garmentId}/unlike`, {method: 'POST'});
+        if (response.ok) {
+          heartBtn.classList.remove('liked');
+          heartBtn.textContent = '♥';
+          if (likesSpan) {
+            const currentLikes = parseInt(likesSpan.textContent);
+            likesSpan.textContent = currentLikes - 1;
+          }
+        }
+      } else {
+        const response = await fetch(`/garments/${garmentId}/like`, {method: 'POST'});
+        if (response.ok) {
+          heartBtn.classList.add('liked');
+          heartBtn.textContent = '♥';
+          if (likesSpan) {
+            const currentLikes = parseInt(likesSpan.textContent);
+            likesSpan.textContent = currentLikes + 1;
+          }
+        }
+      }
+    }
+  </script>
+{% endblock %}
+
+
