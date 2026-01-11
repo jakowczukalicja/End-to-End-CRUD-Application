@@ -46,6 +46,8 @@ After long brainstorming we have created appropriate UML and ERD diagrams, justi
 * **Views**: ≥1 for read-only reporting
 * **Sample data**: ≥50 rows across tables (SQL seed or CSV)
 * `sql/schema.sql`, `sql/seed.sql`, `sql/views.sql`, `sql/indexes.sql`
+We have created sql database that will be used in our web app. We have used PostgreSQL and DBeaver.
+Both of us have set up the database locally.
 
 ### M4 — Data Access Layer & API 
 
