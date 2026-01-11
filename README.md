@@ -4,7 +4,7 @@
 
 **Instructor:** Dr. Serhii Baraban
 
-**Delivery:** Individual 
+**Delivery:** In pair 
 
 **Repository:** GitHub Classroom 
 
@@ -28,6 +28,7 @@ Design and implement a small information system from scratch that:
 * Domain selection + **user stories** 
 * **Business rules** (cardinalities, optionality, constraints)
 * `docs/BRIEF.md` (≤2 pages)
+After selecting Fashion Inspo as our domain, we have worked on business rules and thought about user stories.
 
 ### M2 — Conceptual Modeling 
 
